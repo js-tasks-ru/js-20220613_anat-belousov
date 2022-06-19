@@ -6,6 +6,10 @@
  */
 export const pick = (obj, ...fields) => {
   const newObj = {};
-  fields.forEach(item => newObj[item] = obj[item]);
+  fields.forEach(item => {
+    if (obj.hasOwnProperty(item)) {
+      newObj[item] = obj[item];
+    }
+  });
   return newObj;
 };
